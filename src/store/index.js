@@ -11,14 +11,25 @@ import getters from './getters'
 Vue.use(Vuex)
 
 const store = new Vuex.Store({
-  modules: {
+/*  modules: {
     app,
     errorLog,
     tagsView,
     user,
     data
   },
-  getters
-})
+  getters*/
+state:{
+  love:''
+},
+  mutations:{
+    change(state, love){
+    state.love = love
+  }
+  },
+  getters:{
+  love:state => state.love
+  }
+});
 
 export default store

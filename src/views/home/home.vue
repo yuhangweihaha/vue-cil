@@ -4,16 +4,12 @@
       <keep-alive>
         <router-view></router-view>
       </keep-alive>
-      <!---->
     </div>
   </div>
 
 </template>
 
 <script>
-  import echarts from 'echarts';
-  import 'echarts/map/js/china.js' // 引入中国地图数据
-  // import { initOption as ioption } from 'liquidfillOptions.js'
   export default {
     name: '',
     data() {

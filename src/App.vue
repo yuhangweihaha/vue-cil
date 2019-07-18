@@ -6,6 +6,8 @@
 </template>
 
 <script>
+  import LoveYiYi from '@/views/LoveYiYi/LoveYiYi';
+  import bianer from '@/views/LoveYiYi/bianer';
   export default {
     name: 'App',
     data() {
@@ -16,6 +18,10 @@
     methods: {
 
     },
+    components:{
+      LoveYiYi,
+      bianer
+    }
   }
 </script>
 

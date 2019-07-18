@@ -16,11 +16,17 @@ const appRouter = [{
 		path: '/home',
 		name: '/home',
 		component: _import('home/home'),
-		children: [{
-				path: '/LoveYiYi',
-				name: 'LoveYiYi',
-				component: _import('LoveYiYi/LoveYiYi'),
+		children: [
+		  {
+				path: '/bianer',
+				name: 'bianer',
+				component: _import('LoveYiYi/bianer'),
 			},
+      {
+        path: '/LoveYiYi',
+        name: 'LoveYiYi',
+        component: _import('LoveYiYi/LoveYiYi'),
+      },
 		]
 	},
 	{
