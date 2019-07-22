@@ -22,21 +22,65 @@ const appRouter = [{
 				name: 'bianer',
 				component: _import('LoveYiYi/bianer'),
 			},
+      // 首页
       {
         path: '/LoveYiYi',
         name: 'LoveYiYi',
         component: _import('LoveYiYi/LoveYiYi'),
       },
+      // 关于我
+      {
+        path: '/AboutMe',
+        name: 'AboutMe',
+        component: _import('AboutMe/AboutMe'),
+      },
+      // 我是友情链接
+      {
+        path: '/FriendshipLinks',
+        name: 'FriendshipLinks',
+        component: _import('FriendshipLinks/FriendshipLinks'),
+      },
+      // 我是前端教程
+      {
+        path: '/Tutorials',
+        name: 'Tutorials',
+        component: _import('Front-endTutorials/Tutorials'),
+      },
+      // 留言板{
+      {
+        path: '/MessageBoard',
+        name: 'MessageBoard',
+        component: _import('MessageBoard/MessageBoard'),
+      },
+      // 个人日志
+      {
+        path: '/PersonalLog',
+        name: 'PersonalLog',
+        component: _import('PersonalLog/PersonalLog'),
+      },
+      // 时间轴
+      {
+        path: '/timeAxis',
+        name: 'timeAxis',
+        component: _import('timeAxis/timeAxis'),
+      },
+      // 祎祎相册
+      {
+        path: '/yiyiAlbum',
+        name: 'yiyiAlbum',
+        component: _import('yiyiAlbum/yiyiAlbum'),
+      },
+
 		]
 	},
 	{
 		path: '/',
-		redirect: '/login',
+		redirect: '/LoveYiYi',
 	}
 ]
 const router = new Router({
 	// mode: 'history',
-	base: '/client/',
+	// base: '/client/',
 	redirect: {
 		name: 'home'
 	},

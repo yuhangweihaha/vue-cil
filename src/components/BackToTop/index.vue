@@ -24,7 +24,7 @@ export default {
       default: 0
     },
     customStyle: {
-      type: Object,
+      // type: Object,
       default: {
         right: '50px',
         bottom: '50px',

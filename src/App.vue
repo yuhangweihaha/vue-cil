@@ -27,8 +27,6 @@
 
 <style>
   html,body {
-    height: 100%;
-    overflow: hidden;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
@@ -42,11 +40,11 @@
     font-family: Arial;
   }
 
-  .anchorBL {
+  /*.anchorBL {
     display: none;
   }
 
   .el-scrollbar__wrap {
     overflow-x: hidden!important;
-  }
+  }*/
 </style>
