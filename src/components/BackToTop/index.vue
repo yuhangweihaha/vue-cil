@@ -72,6 +72,8 @@ export default {
         }
         i++
       }, 16.7)
+      console.log(start,'startstart');
+      this.$emit('listenToChildEvent', [start]);
     },
     easeInOutQuad(t, b, c, d) {
       if ((t /= d / 2) < 1) return c / 2 * t * t + b

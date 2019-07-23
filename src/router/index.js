@@ -70,7 +70,12 @@ const appRouter = [{
         name: 'yiyiAlbum',
         component: _import('yiyiAlbum/yiyiAlbum'),
       },
-
+      // 老于头杂谈
+      {
+        path: '/ARandomTalk',
+        name: 'ARandomTalk',
+        component: _import('ARandomTalk/ARandomTalk'),
+      },
 		]
 	},
 	{

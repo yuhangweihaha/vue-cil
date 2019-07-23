@@ -1,20 +1,23 @@
 <template>
   <div id="login">
     <header ref="rightBars">
-       <div class="w1200">
+      <div class="w1200">
         <div class="logo f1">
           <div class="BlogTitle">
             <a href="www.bianer.我爱你"></a>
           </div>
         </div>
-         <nav class="fr">
-           <div class="rightheader">
-             <ul>
-               <li v-for="init in list" :class="isname === init.name ? 'active' : '' " @click="ClickList(init.name, init.link)">{{init.name}}</li>
-             </ul>
-           </div>
-         </nav>
-       </div>
+        <nav class="fr">
+          <div class="rightheader">
+            <ul>
+              <li v-for="init in list" :class="isname === init.name ? 'active' : '' "
+                  @click="ClickList(init.name, init.link)">{{init.name}}
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+      <div class="shape"></div>
     </header>
     <main>
       <keep-alive>
@@ -29,90 +32,107 @@
   export default {
     name: '',
     props: {
-     /* visibilityHeight: {
-        type: Number,
-        default: 400
-      },*/
+      /* visibilityHeight: {
+         type: Number,
+         default: 400
+       },*/
     },
     data() {
       return {
-        isname:'首页',
-        list:[
+        isname: '首页',
+        list: [
           {
-            name:'首页',
-            link:'LoveYiYi'
+            name: '首页',
+            link: 'LoveYiYi'
           },
           {
-            name:'前端教程',
-            link:'Tutorials'
+            name: '关于我',
+            link: 'AboutMe'
           },
           {
-            name:'个人日志',
-            link:'PersonalLog'
+            name: '前端教程',
+            link: 'Tutorials'
           },
           {
-            name:'关于我',
-            link:'AboutMe'
+            name: '个人日志',
+            link: 'PersonalLog'
           },
           {
-            name:'留言板',
-            link:'MessageBoard'
+            name: '文章精选',
+            link: 'FriendshipLinks'
           },
           {
-            name:'时间轴',
-            link:'timeAxis',
+            name: '时间轴',
+            link: 'timeAxis',
           },
           {
-            name:'文章精选',
-            link:'FriendshipLinks'
+            name: '留言板',
+            link: 'MessageBoard'
           },
           {
-            name:'祎祎相册',
-            link:'yiyiAlbum',
+            name: '祎祎相册',
+            link: 'yiyiAlbum',
           },
-        ]
+          {
+            name: '老于头杂谈',
+            link: 'ARandomTalk',
+          },
+        ],
+        lao:[]
       }
     },
     methods: {
-      ClickList(data, link){
+      ClickList(data, link) {
         let links = link;
         this.isname = data;
         this.$router.push({
           path: '/' + links
         });
       },
-    /*  scrollFunc(e) {
-          e = e || window.event;
-          if (e.wheelDelta) { //第一步：先判断浏览器IE，谷歌滑轮事件
-            if (e.wheelDelta > 0) { //当滑轮向上滚动时
-              console.log("滑轮向上滚动");
+      /*  scrollFunc(e) {
+            e = e || window.event;
+            if (e.wheelDelta) { //第一步：先判断浏览器IE，谷歌滑轮事件
+              if (e.wheelDelta > 0) { //当滑轮向上滚动时
+                console.log("滑轮向上滚动");
+              }
+              if (e.wheelDelta < 0) { //当滑轮向下滚动时
+                console.log("滑轮向下滚动");
+              }
+            } else if (e.detail) { //Firefox滑轮事件
+              if (e.detail> 0) { //当滑轮向上滚动时
+                console.log("滑轮向上滚动");
+              }
+              if (e.detail< 0) { //当滑轮向下滚动时
+                console.log("滑轮向下滚动");
+              }
             }
-            if (e.wheelDelta < 0) { //当滑轮向下滚动时
-              console.log("滑轮向下滚动");
-            }
-          } else if (e.detail) { //Firefox滑轮事件
-            if (e.detail> 0) { //当滑轮向上滚动时
-              console.log("滑轮向上滚动");
-            }
-            if (e.detail< 0) { //当滑轮向下滚动时
-              console.log("滑轮向下滚动");
-            }
-          }
-        },*/
+          },*/
       scrollToTop(e) {
         var scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop;
-         console.log(scrollTop);
-        if(scrollTop >= 100){
+        if (scrollTop >= 100 || scrollTop > 0 && scrollTop > 20) {
           this.$refs.rightBars.style.transform = 'translateY(-0.9rem)';
         }
+        if(scrollTop === 0){
+          this.$refs.rightBars.style.transform = 'translateY(0)';
+        }
+        let _this = this;
+        document.onscroll = function () {
+          var st = document.body.scrollTop || document.documentElement.scrollTop;
+          if(st>=200){
+            _this.$refs.rightBars.style.transform = 'translateY(-0.9rem)';
+          }
+          if(st == 0){
+            _this.$refs.rightBars.style.transform = 'translateY(0)';
+          }
+        };
         e = e || window.event;
         if (e.wheelDelta) { //第一步：先判断浏览器IE，谷歌滑轮事件
           if (e.wheelDelta > 0) { //当滑轮向上滚动时
-            console.log("滑轮向上滚动");
+            // console.log("滑轮向上滚动");
             this.$refs.rightBars.style.transform = 'translateY(0)';
           }
           if (e.wheelDelta < 0) { //当滑轮向下滚动时
-            console.log("滑轮向下滚动");
+            // console.log("滑轮向下滚动");
           }
         }
       },
@@ -155,7 +175,7 @@
           break;
       }
     },
-    updated(){
+    updated() {
       switch (this.$route.path.replace('/', '')) {
         case  "LoveYiYi":
           this.isname = '首页';
@@ -194,42 +214,45 @@
 <style lang="less" scoped>
   #login {
     width: 100%;
-    height: 2000px;
+    height: auto;
     overflow-y: auto;
     background-size: 100%;
     font-family: 'Open Sans', Arial, sans-serif;
-    background-color: #fff;
+    background-color: #fdffee;
     font-size: 0.16rem;
     header {
       width: 100%;
       height: 0.9rem;
-      background-color: rgba(0,0,0,0.8);
+      background-color: rgba(0, 0, 0, 0.8);
       transform: translateY(0);
       /*transform: translateX(0%);*/
-      transition: transform .75s ease;
+      transition: transform .45s ease;
       position: fixed;
       top: 0;
-      .w1200{
+      z-index: 1000;
+      .w1200 {
         width: 1200px;
         height: 100%;
         margin: 0 auto;
         box-sizing: border-box;
-        .f1{
+        .f1 {
           float: left;
-          .BlogTitle a{
+          .BlogTitle a {
             display: block;
             width: 240px;
             height: 90px;
-            background: url("../../icon/laoyu.png")no-repeat;
+            background: url("../../icon/laoyu.png") no-repeat;
             background-size: 100% 100%;
           }
         }
-        .fr{float: right}
-        .rightheader{
-          ul{
+        .fr {
+          float: right
+        }
+        .rightheader {
+          ul {
             width: 100%;
             height: 100%;
-            li{
+            li {
               float: left;
               list-style: none;
               cursor: pointer;
@@ -239,17 +262,32 @@
               font-size: 0.16rem;
               line-height: 0.9rem;
             }
+            :hover {
+              background-color: #fdffee;
+              color: #000000 !important;
+            }
           }
         }
       }
+      .shape {
+        width: 100%;
+        height: 0.2rem;
+        background: url("../../icon/shape.png");
+        background-size: 100% 100%;
+        position: absolute;
+        bottom: 0rem;
+      }
     }
-    main{
+    main {
       width: 100%;
       height: calc(100% - 0.9rem);
       margin-top: 0.9rem;
+      overflow-y: hidden;
+      z-index: 100;
     }
-    .active{
-      background-color: #0a76a4;
+    .active {
+      background-color: #fdffee;
+      color: #000 !important;
     }
   }
 </style>

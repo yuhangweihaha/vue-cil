@@ -1,7 +1,5 @@
 <template>
-    <div id="MessageBoard">
-      留言板
-    </div>
+    <div>老于头杂谈</div>
 </template>
 
 <script>
@@ -23,7 +21,5 @@
 </script>
 
 <style scoped lang="less">
-  #MessageBoard{
-    background-color: #55a532;
-  }
+
 </style>
