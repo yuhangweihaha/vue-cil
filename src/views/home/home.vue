@@ -3,8 +3,7 @@
     <header ref="rightBars">
       <div class="w1200">
         <div class="logo f1">
-          <div class="BlogTitle">
-            <a href="www.bianer.我爱你"></a>
+          <div class="BlogTitle" @click="BlogTitle">
           </div>
         </div>
         <nav class="fr">
@@ -12,6 +11,7 @@
             <ul>
               <li v-for="init in list" :class="isname === init.name ? 'active' : '' "
                   @click="ClickList(init.name, init.link)">{{init.name}}
+                <span></span>
               </li>
             </ul>
           </div>
@@ -54,16 +54,16 @@
             link: 'Tutorials'
           },
           {
-            name: '个人日志',
-            link: 'PersonalLog'
-          },
-          {
             name: '文章精选',
             link: 'FriendshipLinks'
           },
           {
             name: '时间轴',
             link: 'timeAxis',
+          },
+          {
+            name: '友情链接',
+            link: 'PersonalLog'
           },
           {
             name: '留言板',
@@ -82,7 +82,10 @@
       }
     },
     methods: {
-      ClickList(data, link) {
+      BlogTitle(){
+        this.$router.push({path: "/LoveYiYi"})
+      },
+    ClickList(data, link) {
         let links = link;
         this.isname = data;
         this.$router.push({
@@ -112,27 +115,18 @@
         if (scrollTop >= 100 || scrollTop > 0 && scrollTop > 20) {
           this.$refs.rightBars.style.transform = 'translateY(-0.9rem)';
         }
-        if(scrollTop === 0){
-          this.$refs.rightBars.style.transform = 'translateY(0)';
-        }
-        let _this = this;
-        document.onscroll = function () {
-          var st = document.body.scrollTop || document.documentElement.scrollTop;
-          if(st>=200){
-            _this.$refs.rightBars.style.transform = 'translateY(-0.9rem)';
-          }
-          if(st == 0){
-            _this.$refs.rightBars.style.transform = 'translateY(0)';
-          }
-        };
         e = e || window.event;
         if (e.wheelDelta) { //第一步：先判断浏览器IE，谷歌滑轮事件
           if (e.wheelDelta > 0) { //当滑轮向上滚动时
-            // console.log("滑轮向上滚动");
+            console.log("滑轮向上滚动");
             this.$refs.rightBars.style.transform = 'translateY(0)';
           }
           if (e.wheelDelta < 0) { //当滑轮向下滚动时
             // console.log("滑轮向下滚动");
+           /* if(this.lao.length%2 === 0){
+              alert(9)
+              this.$refs.rightBars.style.transform = 'translateY(-0.9rem)';
+            }*/
           }
         }
       },
@@ -144,6 +138,16 @@
       }
       //滚动滑轮触发scrollFunc方法 //ie 谷歌
       window.onmousewheel = document.onmousewheel = this.scrollToTop;
+       let _this = this;
+ document.onscroll = function () {
+   var st = document.body.scrollTop || document.documentElement.scrollTop;
+   /*if(st>200){
+     _this.$refs.rightBars.style.transform = 'translateY(-0.9rem)';
+   }*/
+   if(st == 0){
+     _this.$refs.rightBars.style.transform = 'translateY(0)';
+   }
+ };
       // window.addEventListener('scroll', )
       switch (this.$route.path.replace('/', '')) {
         case  "LoveYiYi":
@@ -153,7 +157,7 @@
           this.isname = '前端教程';
           break;
         case  "PersonalLog":
-          this.isname = '个人日志';
+          this.isname = '友情链接';
           break;
         case  "AboutMe":
           this.isname = '关于我';
@@ -172,6 +176,9 @@
           break;
         case  "yiyiAlbum":
           this.isname = '祎祎相册';
+          break;
+        case  " /Construction":
+          this.isname = '文章精选';
           break;
       }
     },
@@ -184,7 +191,7 @@
           this.isname = '前端教程';
           break;
         case  "PersonalLog":
-          this.isname = '个人日志';
+          this.isname = '友情链接';
           break;
         case  "AboutMe":
           this.isname = '关于我';
@@ -203,6 +210,9 @@
           break;
         case  "yiyiAlbum":
           this.isname = '祎祎相册';
+          break;
+        case  "FriendshipLinks/Construction":
+          this.isname = '文章精选';
           break;
       }
     }
@@ -219,6 +229,8 @@
     background-size: 100%;
     font-family: 'Open Sans', Arial, sans-serif;
     background-color: #fdffee;
+    /*background: url("../../icon/img.png")no-repeat;
+    background-size: 100% 100%;*/
     font-size: 0.16rem;
     header {
       width: 100%;
@@ -237,12 +249,13 @@
         box-sizing: border-box;
         .f1 {
           float: left;
-          .BlogTitle a {
+          .BlogTitle {
             display: block;
-            width: 240px;
-            height: 90px;
+            width: 2.2rem;
+            height: 0.9rem;
             background: url("../../icon/laoyu.png") no-repeat;
             background-size: 100% 100%;
+            cursor: pointer;
           }
         }
         .fr {
@@ -261,10 +274,18 @@
               padding-left: 0.22rem;
               font-size: 0.16rem;
               line-height: 0.9rem;
+              position: relative;
+              span{
+                width: 100%;
+                height: 5%;
+                background: #3c763d;
+                position: absolute;
+                top: 0;
+              }
             }
             :hover {
-              background-color: #fdffee;
-              color: #000000 !important;
+              background-color: #fff;
+              color: #000 !important;
             }
           }
         }
@@ -286,8 +307,10 @@
       z-index: 100;
     }
     .active {
-      background-color: #fdffee;
+      background-color: #ffffff;
       color: #000 !important;
+      /*background: url("../../icon/omg.png");*/
+
     }
   }
 </style>

@@ -76,6 +76,12 @@ const appRouter = [{
         name: 'ARandomTalk',
         component: _import('ARandomTalk/ARandomTalk'),
       },
+      // 新手建站
+      {
+        path: '/FriendshipLinks/Construction',
+        name: 'Construction',
+        component: _import('FriendshipLinks/Construction'),
+      },
 		]
 	},
 	{
