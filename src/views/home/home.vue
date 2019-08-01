@@ -11,7 +11,7 @@
             <ul>
               <li v-for="init in list" :class="isname === init.name ? 'active' : '' "
                   @click="ClickList(init.name, init.link)">{{init.name}}
-                <span></span>
+                <!--<span></span>-->
               </li>
             </ul>
           </div>
@@ -285,7 +285,9 @@
             }
             :hover {
               background-color: #fff;
-              color: #000 !important;
+              color: #fff  !important;
+              background: url("../../icon/banner/lees.png")no-repeat;
+              background-size: 100% 100%;
             }
           }
         }
@@ -307,10 +309,10 @@
       z-index: 100;
     }
     .active {
-      background-color: #ffffff;
-      color: #000 !important;
-      /*background: url("../../icon/omg.png");*/
-
+      background-color: #fff;
+      color: #fff  !important;
+      background: url("../../icon/banner/lees.png")no-repeat;
+      background-size: 100% 100%;
     }
   }
 </style>

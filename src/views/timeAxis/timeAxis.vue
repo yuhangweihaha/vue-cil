@@ -37,6 +37,9 @@
 <script>
   import foot from "../../common/footer";
   import getup from "../../components/BackToTop/index";
+  import {
+    select,
+  } from '@/api/xiaoyiyi';
 
   export default {
     data() {
@@ -87,12 +90,17 @@
         if (data.id) {
           this.$router.push({path:data.path});
         }
+      },
+      ying(){
+        select().then(res => {
+        console.log(res)
+        })
       }
     },
     created() {
     },
     mounted() {
-
+     // this.ying();
     },
     components: {
       foot,
@@ -112,7 +120,7 @@
       position: absolute;
       top: 0;
       /*background: radial-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.9)), url(../../icon/banner/cases.jpg) no-repeat fixed center top;*/
-     background: linear-gradient(rgba(0, 0, 0, 0) 40%, rgba(0, 0, 0, 0.6)),url(../../icon/banner/cases.jpg) no-repeat fixed center top;
+     background: linear-gradient(rgba(0, 0, 0, 0) 40%, rgba(0, 0, 0, 0.4)),url(../../icon/banner/cases.jpg) no-repeat fixed center top;
 
       background-size: 100%, 100%;
       .banners{

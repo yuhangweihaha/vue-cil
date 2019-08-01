@@ -1,3 +1,4 @@
+import request from '@/utils/request'
 // 我是小祎祎
 export function select() {
   return request({
@@ -14,3 +15,10 @@ export function adds(query) {
     data: query
   })
 }
+// 我是小祎祎
+  export function laoyus() {
+    return request({
+      url: '/hotelrest',
+      method: 'get',
+    })
+  }

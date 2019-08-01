@@ -21,10 +21,10 @@ module.exports = {
             },*/
       '/hotelrest': {
         // target: 'http://172.30.17.222:8765',
-        target: 'http://172.30.17.156:8000',
+        target: 'http://127.0.0.1:8888',
         // target: 'http://locahost:8765',
         pathRewrite: {
-          '^/hotelrest': '/hotelrest/'
+          '^/hotelrest': ''
         },
       },
       '/gsupserver': {
@@ -36,11 +36,7 @@ module.exports = {
         },
       },
       '/api': {
-        // target: 'http://192.168.2.137:8862 ',
-        target: 'http://172.30.17.202:8765',
-        // target: 'http://172.30.17.233:8765',
-        // target: 'http://192.168.1.159:8765',
-        // target: 'http://localhost:8765',
+        target: 'http://172.30.80.160:8990',
         pathRewrite: {
           '^/api': '/api/'
         }
